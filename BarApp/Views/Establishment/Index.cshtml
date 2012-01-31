@@ -1,0 +1,16 @@
+﻿@model IEnumerable<BarApp.Models.Establishments>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>This is from the Store view named Index.  This is a list of establishments:</h2>
+<p>
+    Select from @Model.Count() establishments:
+</p>
+<ul>
+    @foreach (var establish in Model)
+    {
+        <li>@Html.ActionLink(establish.name, "Establishment" , new {store = establish.name }) </li>
+    }
+</ul>

@@ -1,0 +1,23 @@
+﻿@model BarApp.Models.Establishments
+
+@{
+    ViewBag.Title = "Establishment";
+}
+
+<h2>You input this establishment: @Model.name</h2>
+
+<div class="establish">
+    <h3><em>@Model.name</em></h3>
+
+    <ul id="drink-list">
+        @foreach (var drink in Model.drinks)
+        {
+            <li>
+                <a href="@Url.Action("Details", new { IDataBindingsAccessor = drink.DrinksId })">
+                    <img alt="@drink.name" src="@drink.image" />
+                    <span>@drink.name</span>
+                </a>
+            </li>    
+        }
+    </ul>
+</div>

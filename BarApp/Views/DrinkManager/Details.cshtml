@@ -1,0 +1,40 @@
+﻿@model BarApp.Models.Drinks
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Drinks</legend>
+
+    <div class="display-label">Establishment where drink is sold:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.establishment.name)
+    </div>
+
+    <div class="display-label">Name of drink:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
+
+    <div class="display-label">Price of drink:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.price)
+    </div>
+
+    <div class="display-label">Description of drink:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.description)
+    </div>
+
+    <div class="display-label">Link to image of drink:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.image)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.DrinksId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

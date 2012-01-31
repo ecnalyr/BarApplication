@@ -1,0 +1,50 @@
+﻿@model BarApp.Models.Establishments
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Establishments</legend>
+
+    <div class="display-label">name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
+
+    <div class="display-label">city</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.city)
+    </div>
+
+    <div class="display-label">street</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.street)
+    </div>
+
+    <div class="display-label">state</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.state)
+    </div>
+
+    <div class="display-label">phone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.phone)
+    </div>
+
+    <div class="display-label">comments</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.comments)
+    </div>
+
+    <div class="display-label">logoImage</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.logoImage)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.EstablishmentsId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

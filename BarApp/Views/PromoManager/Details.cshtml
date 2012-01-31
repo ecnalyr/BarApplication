@@ -1,0 +1,40 @@
+﻿@model BarApp.Models.Promotions
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Promotions</legend>
+
+    <div class="display-label">name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
+
+    <div class="display-label">discount</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.discount)
+    </div>
+
+    <div class="display-label">establishmentId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EstablishmentsId)
+    </div>
+
+    <div class="display-label">drinkId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DrinksId)
+    </div>
+
+    <div class="display-label">description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.description)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PromotionsId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
