@@ -9,7 +9,7 @@ using BarApp.Models;
 
 namespace BarApp.Controllers
 {
-    //[Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Administrator")]
     public class PromoManagerController : Controller
     {
         private BarAppEntities db = new BarAppEntities();

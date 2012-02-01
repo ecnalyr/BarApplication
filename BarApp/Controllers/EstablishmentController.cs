@@ -7,6 +7,7 @@ using BarApp.Models;
 
 namespace BarApp.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class EstablishmentController : Controller
     {
         BarAppEntities storeDB = new BarAppEntities();

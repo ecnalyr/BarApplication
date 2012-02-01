@@ -5,3 +5,10 @@ c:\users\administrator\documents\visual studio 2010\Projects\BarApp\BarApp\bin\E
 c:\users\administrator\documents\visual studio 2010\Projects\BarApp\BarApp\obj\Debug\ResolveAssemblyReference.cache
 c:\users\administrator\documents\visual studio 2010\Projects\BarApp\BarApp\obj\Debug\BarApp.dll
 c:\users\administrator\documents\visual studio 2010\Projects\BarApp\BarApp\obj\Debug\BarApp.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\bin\BarApp.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\bin\BarApp.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\bin\EntityFramework.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\bin\EntityFramework.xml
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\obj\Debug\BarApp.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\obj\Debug\BarApp.pdb
