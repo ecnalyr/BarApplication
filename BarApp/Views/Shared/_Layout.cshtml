@@ -16,6 +16,9 @@
             <div id="logindisplay">
                 @Html.Partial("_LogOnPartial")
             </div>
+            <div>
+                @{Html.RenderAction("CartSummary", "ShoppingCart");}
+            </div>
             <nav>
                 <ul id="menu">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>

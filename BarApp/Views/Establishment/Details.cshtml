@@ -1,0 +1,48 @@
+﻿@model BarApp.Models.Drinks
+
+@{
+    ViewBag.Title = "Details - " + Model.name;
+}
+
+<h2>@Model.name</h2>
+
+<p>
+    <img alt="@Model.name" src="@Model.image" />
+</p>
+
+<fieldset>
+    <legend>Drinks</legend>
+
+    <div class="display-label">This drink is served at the following establishment: (currently displays EstablishmentsID instead of name)</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EstablishmentsID)
+    </div>
+
+    <div class="display-label">Name of drink:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
+
+    <div class="display-label">Price of drink: (shows it twice, displayed using different methods)</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.price)
+        <p>
+        @String.Format("{0:F}", Model.price)
+        </p>
+    </div>
+
+    <div class="display-label">Description of Drink:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.description)
+    </div>
+
+    <div class="display-label">Picture of Drink: (Picture is actually displayed at top of screen too, but you can see the 'img alt' up there)</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.image)
+    </div>
+    <p class="button">
+        @Html.ActionLink("Add to cart", "AddToCart", 
+        "ShoppingCart", new { id = Model.DrinksId }, "")
+    </p>
+</fieldset>
+

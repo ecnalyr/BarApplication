@@ -1,0 +1,32 @@
+﻿@model BarApp.Models.Order
+
+@{
+    ViewBag.Title = "Address and Payment";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    
+    <h2>Address And Payment</h2>
+    <fieldset>
+        <legend>Billing Address Information</legend>
+
+        @Html.EditorForModel()
+    </fieldset>
+    <fieldset>
+        <legend>Payment</legend>
+        <p>We're running a promotion: all drinks are free with the promo code: "FREE"</p>
+        <p>(Have not installed functioning payment process, promo code is only method of checkout for now)</p>
+
+        <div class="editor-label">
+            @Html.Label("Promo Code")
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("PromoCode")
+        </div>
+    </fieldset>
+    
+    <input type="submit" value="Submit Order" />
+}

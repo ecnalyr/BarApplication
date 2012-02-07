@@ -7,7 +7,7 @@ using BarApp.Models;
 
 namespace BarApp.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    //[Authorize(Roles = "Administrator")]
     public class EstablishmentController : Controller
     {
         BarAppEntities storeDB = new BarAppEntities();
@@ -46,6 +46,16 @@ namespace BarApp.Controllers
             // Needs to get a list of all available drinks at an Establishment
             var drinkModel = new Drinks { name = drink };
             return View(drinkModel);
+        }
+
+        //
+        // GET: /Store/Details/5
+
+        public ActionResult Details(int id)
+        {
+            var drink = storeDB.Drink.Find(id);
+
+            return View(drink);
         }
 
     }

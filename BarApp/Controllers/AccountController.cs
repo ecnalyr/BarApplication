@@ -12,6 +12,15 @@ namespace BarApp.Controllers
     public class AccountController : Controller
     {
 
+        private void MigrateShoppingCart(string UserName)
+        {
+            // Associate shopping cart items with logged-in user
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+
+            cart.MigrateCart(UserName);
+            Session[ShoppingCart.CartSessionKey] = UserName;
+        }
+
         //
         // GET: /Account/LogOn
 
@@ -30,6 +39,8 @@ namespace BarApp.Controllers
             {
                 if (Membership.ValidateUser(model.UserName, model.Password))
                 {
+                    MigrateShoppingCart(model.UserName);
+
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
@@ -83,6 +94,8 @@ namespace BarApp.Controllers
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
+                    MigrateShoppingCart(model.UserName);
+
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
                     return RedirectToAction("Index", "Home");
                 }

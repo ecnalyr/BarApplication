@@ -13,7 +13,7 @@
         @foreach (var drink in Model.drinks)
         {
             <li>
-                <a href="@Url.Action("Details", new { IDataBindingsAccessor = drink.DrinksId })">
+                <a href="@Url.Action("Details", new { id = drink.DrinksId })">
                     <img alt="@drink.name" src="@drink.image" />
                     <span>@drink.name</span>
                 </a>
