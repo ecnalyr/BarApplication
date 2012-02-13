@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Profile";
+}
+
+<h2>Profile</h2>
+@if (Request.IsAuthenticated)
+{
+    <p>
+        This is your user name: <b>@User.Identity.Name</b>
+    </p>
+    <p>
+        This is your user name displayed using HttpContext: <b>@HttpContext.Current.User.Identity.Name</b>
+    </p>
+    <p> 
+        This is your favorite drink: <b>@BarApp.Models.CustomProfile.GetUserProfile(User.Identity.Name).FavoriteDrink</b>
+    </p>
+    <p>
+        This is your favorite bar: <b>@BarApp.Models.CustomProfile.GetUserProfile(User.Identity.Name).FavoriteBar</b>
+    </p>
+    <p>
+        <i>I want the favorite drink to be selectable from a dropdown menu of all available drinks that we have for sale so that when someone views the person's profile, they can buy them their favorite drink by clicking the drink directly.  This was giving me problems, so I have made it a simple textbox for now.</i>
+    </p>
+    <p>
+        <i>We would likely also need a favorite bar / restaraunt selection here with similar linking capabilities.</i>
+    </p>
+    <p>
+        <i>Any additional profile information would go here.</i>
+    </p>
+
+    @Html.ActionLink("Edit Profile", "ChangeProfile" )
+    
+ }

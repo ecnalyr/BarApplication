@@ -6,11 +6,14 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using BarApp.Models;
+using System.Data;
+using System.Data.Entity;
 
 namespace BarApp.Controllers
 {
     public class AccountController : Controller
     {
+        private BarAppEntities db = new BarAppEntities();
 
         private void MigrateShoppingCart(string UserName)
         {
@@ -161,6 +164,43 @@ namespace BarApp.Controllers
         public ActionResult ChangePasswordSuccess()
         {
             return View();
+        }
+
+        //
+        // GET: /Account/Profile/Profile
+
+        public ActionResult Profile()
+        {
+            return View();
+        }
+
+        //
+        // GET: /Account/ChangeProfile
+
+        [Authorize]
+        public ActionResult ChangeProfile()
+        {
+            ViewBag.favDrink = CustomProfile.GetUserProfile(User.Identity.Name).FavoriteDrink; // May want to replace this viewBag with a ViewModel that handles all of our profile features.
+            ViewBag.favBar = CustomProfile.GetUserProfile(User.Identity.Name).FavoriteBar;
+
+            return View();
+        }
+
+        //
+        // POST: /Account/ChangeProfile
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult ChangeProfile( FormCollection favorites )
+        {
+            //@html.textbox works great if we want user to type in name of drink.  I want user to be able to select a drink from dropdowns of establishment > specific drink.
+            string drinkName = favorites["FavoriteDrink"];
+            string barName = favorites["FavoriteBar"];
+            CustomProfile profile = CustomProfile.GetUserProfile();
+            profile.FavoriteDrink = drinkName;
+            profile.FavoriteBar = barName;
+            profile.Save();
+            return RedirectToAction("Profile");
         }
 
         #region Status Codes

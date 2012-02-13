@@ -9,7 +9,12 @@
 {
     <p>
         This is your user name: @User.Identity.Name
+    </p>
+    <p>
         This is your user name displayed using HttpContext: @HttpContext.Current.User.Identity.Name
+    </p>
+    <p> 
+    This is your favorite drink: @BarApp.Models.CustomProfile.GetUserProfile(User.Identity.Name).FavoriteDrink
     </p>
 }
 <p>

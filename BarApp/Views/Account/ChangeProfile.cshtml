@@ -1,0 +1,32 @@
+﻿@model BarApp.Models.Promotions
+
+@{
+    ViewBag.Title = "ChangeProfile";
+}
+
+<h2>ChangeProfile</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>What is your favorite drink/bar?</legend>
+
+        <div class="editor-field">
+            @Html.TextBox("FavoriteDrink", (string)ViewBag.favDrink)
+        </div>
+
+        <div class="editor-field">
+            @Html.TextBox("FavoriteBar", (string)ViewBag.favBar)
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

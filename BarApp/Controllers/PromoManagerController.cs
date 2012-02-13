@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using BarApp.Models;
 
+
 namespace BarApp.Controllers
 {
     [Authorize(Roles = "Administrator")]
@@ -19,6 +20,11 @@ namespace BarApp.Controllers
 
         public ViewResult Index()
         {
+            // I used the following one time to store Drink1 to Admin's "Favorite Drink" profile spot.
+            /*CustomProfile profile = CustomProfile.GetUserProfile();
+            profile.FavoriteDrink = "Drink3";
+            profile.Save();*/
+            
             return View(db.Promotion.ToList());
         }
 
@@ -36,7 +42,6 @@ namespace BarApp.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.EstablishmentsId = new SelectList(db.Establishment, "EstablishmentsId", "name");
             ViewBag.DrinksId = new SelectList(db.Drink, "DrinksId", "name");
             return View();
         } 
