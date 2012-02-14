@@ -6,3 +6,24 @@
 <p>
     This is a website designed to allow you to buy drinks from bars.
 </p>
+<article>
+    <h3>Article 3</h3>
+    <p>This is the first paragraph.</p>
+    <p><span class="co">This is the span part.  </span>This is the second paragraph></p>
+</article>
+
+<script>
+
+    var co = $('span.co').each(function () {
+        var $this = $(this);
+
+        $('<blockquote></blockquote>', {
+            class: 'co',
+            text: $this.text()
+        }).prependTo($this.closest('p'));
+    });
+
+
+</script>
+
+
