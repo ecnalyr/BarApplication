@@ -19,7 +19,18 @@ namespace BarApp.Controllers
         public ActionResult AddressAndPayment()
         {
             ViewBag.firstName = CustomProfile.GetUserProfile(User.Identity.Name).FirstName;
-            return View();
+            CustomProfile profile = CustomProfile.GetUserProfile(User.Identity.Name);
+            Order model = new Order
+            {
+                FirstName = CustomProfile.GetUserProfile(User.Identity.Name).FirstName,
+                LastName = profile.LastName,
+                Address = profile.Address,
+                City = profile.City,
+                State = profile.State,
+                PostalCode = profile.PostalCode,
+                Phone = profile.Phone,
+            };
+            return View(model);
         }
 
         //

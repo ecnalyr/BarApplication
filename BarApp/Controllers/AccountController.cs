@@ -9,6 +9,7 @@ using BarApp.Models;
 using System.Data;
 using System.Data.Entity;
 using BarApp.ViewModels;
+using AutoMapper;
 
 namespace BarApp.Controllers
 {
@@ -181,7 +182,7 @@ namespace BarApp.Controllers
         [Authorize]
         public ActionResult ChangeProfile()
         {
-            ViewBag.favDrink = CustomProfile.GetUserProfile(User.Identity.Name).FavoriteDrink; // May want to replace this viewBag with a ViewModel that handles all of our profile features.
+            /*ViewBag.favDrink = CustomProfile.GetUserProfile(User.Identity.Name).FavoriteDrink; // May want to replace this viewBag with a ViewModel that handles all of our profile features.
             ViewBag.favBar = CustomProfile.GetUserProfile(User.Identity.Name).FavoriteBar;
             ViewBag.firstName = CustomProfile.GetUserProfile(User.Identity.Name).FirstName;
             ViewBag.lastName = CustomProfile.GetUserProfile(User.Identity.Name).LastName;
@@ -189,9 +190,22 @@ namespace BarApp.Controllers
             ViewBag.city = CustomProfile.GetUserProfile(User.Identity.Name).City;
             ViewBag.state = CustomProfile.GetUserProfile(User.Identity.Name).State;
             ViewBag.postalCode = CustomProfile.GetUserProfile(User.Identity.Name).PostalCode;
-            ViewBag.phone = CustomProfile.GetUserProfile(User.Identity.Name).Phone;
+            ViewBag.phone = CustomProfile.GetUserProfile(User.Identity.Name).Phone;*/
 
-            return View();
+            CustomProfile profile = CustomProfile.GetUserProfile(User.Identity.Name);
+            ProfileViewModel model = new ProfileViewModel
+            {
+                FirstName = profile.FirstName,
+                LastName = profile.LastName,
+                Address = profile.Address,
+                City = profile.City,
+                State = profile.State,
+                PostalCode = profile.PostalCode,
+                Phone = profile.Phone,
+                FavoriteDrink = profile.FavoriteDrink,
+                FavoriteBar = profile.FavoriteBar
+            };
+            return View(model);
         }
 
         //
@@ -199,7 +213,44 @@ namespace BarApp.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult ChangeProfile( FormCollection favorites )
+        public ActionResult ChangeProfile(ProfileViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                // there were validation errors => redisplay the view
+                return View(model);
+            }
+
+            // validation succeeded => process the results
+            CustomProfile profile = CustomProfile.GetUserProfile();
+            profile.FirstName = model.FirstName;
+            profile.LastName = model.LastName;
+            profile.Address = model.Address;
+            profile.City = model.City;
+            profile.State = model.State;
+            profile.PostalCode = model.PostalCode;
+            profile.Phone = model.Phone;
+            profile.FavoriteDrink = model.FavoriteDrink;
+            profile.FavoriteBar = model.FavoriteBar;
+            profile.Save();
+            return RedirectToAction("Profile");
+        }
+
+        /*public ActionResult ChangeProfile(ProfileViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                // there were validation errors => redisplay the view
+                return View(model);
+            }
+
+            // validation succeeded => process the results
+            CustomProfile profile = CustomProfile.GetUserProfile();
+            Mapper.Map<ProfileViewModel, CustomProfile>(model, profile);
+            profile.Save();
+            return RedirectToAction("Profile");
+        }*/
+        /*public ActionResult ChangeProfile( FormCollection favorites )
         {
             //@html.textbox works great if we want user to type in name of drink.  I want user to be able to select a drink from dropdowns of establishment > specific drink.
             CustomProfile profile = CustomProfile.GetUserProfile();
@@ -214,7 +265,7 @@ namespace BarApp.Controllers
             profile.FavoriteBar = favorites["FavoriteBar"];
             profile.Save();
             return RedirectToAction("Profile");
-        }
+        }*/
 
         #region Status Codes
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)
