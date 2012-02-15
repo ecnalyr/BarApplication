@@ -12,3 +12,5 @@ C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\bi
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\obj\Debug\BarApp.dll
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\obj\Debug\BarApp.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\bin\AutoMapper.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\bin\AutoMapper.xml

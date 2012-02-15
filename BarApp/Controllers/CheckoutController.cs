@@ -18,6 +18,7 @@ namespace BarApp.Controllers
 
         public ActionResult AddressAndPayment()
         {
+            ViewBag.firstName = CustomProfile.GetUserProfile(User.Identity.Name).FirstName;
             return View();
         }
 

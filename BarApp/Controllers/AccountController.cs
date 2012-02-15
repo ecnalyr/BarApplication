@@ -8,6 +8,7 @@ using System.Web.Security;
 using BarApp.Models;
 using System.Data;
 using System.Data.Entity;
+using BarApp.ViewModels;
 
 namespace BarApp.Controllers
 {
@@ -182,6 +183,13 @@ namespace BarApp.Controllers
         {
             ViewBag.favDrink = CustomProfile.GetUserProfile(User.Identity.Name).FavoriteDrink; // May want to replace this viewBag with a ViewModel that handles all of our profile features.
             ViewBag.favBar = CustomProfile.GetUserProfile(User.Identity.Name).FavoriteBar;
+            ViewBag.firstName = CustomProfile.GetUserProfile(User.Identity.Name).FirstName;
+            ViewBag.lastName = CustomProfile.GetUserProfile(User.Identity.Name).LastName;
+            ViewBag.address = CustomProfile.GetUserProfile(User.Identity.Name).Address;
+            ViewBag.city = CustomProfile.GetUserProfile(User.Identity.Name).City;
+            ViewBag.state = CustomProfile.GetUserProfile(User.Identity.Name).State;
+            ViewBag.postalCode = CustomProfile.GetUserProfile(User.Identity.Name).PostalCode;
+            ViewBag.phone = CustomProfile.GetUserProfile(User.Identity.Name).Phone;
 
             return View();
         }
@@ -194,11 +202,16 @@ namespace BarApp.Controllers
         public ActionResult ChangeProfile( FormCollection favorites )
         {
             //@html.textbox works great if we want user to type in name of drink.  I want user to be able to select a drink from dropdowns of establishment > specific drink.
-            string drinkName = favorites["FavoriteDrink"];
-            string barName = favorites["FavoriteBar"];
             CustomProfile profile = CustomProfile.GetUserProfile();
-            profile.FavoriteDrink = drinkName;
-            profile.FavoriteBar = barName;
+            profile.FirstName = favorites["FirstName"];
+            profile.LastName = favorites["LastName"];
+            profile.Address = favorites["Address"];
+            profile.City = favorites["City"];
+            profile.State = favorites["State"];
+            profile.PostalCode = favorites["PostalCode"];
+            profile.Phone = favorites["Phone"];
+            profile.FavoriteDrink = favorites["FavoriteDrink"];
+            profile.FavoriteBar = favorites["FavoriteBar"];
             profile.Save();
             return RedirectToAction("Profile");
         }

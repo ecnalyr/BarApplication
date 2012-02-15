@@ -11,6 +11,27 @@
     <p>
         This is your user name displayed using HttpContext: <b>@HttpContext.Current.User.Identity.Name</b>
     </p>
+    <p>
+        First name: <b>@BarApp.Models.CustomProfile.GetUserProfile(User.Identity.Name).FirstName</b>
+    </p>
+    <p>
+        Last name: <b>@BarApp.Models.CustomProfile.GetUserProfile(User.Identity.Name).LastName</b>
+    </p>
+    <p>
+        Address: <b>@BarApp.Models.CustomProfile.GetUserProfile(User.Identity.Name).Address</b>
+    </p>
+    <p>
+        City: <b>@BarApp.Models.CustomProfile.GetUserProfile(User.Identity.Name).City</b>
+    </p>
+    <p>
+        State: <b>@BarApp.Models.CustomProfile.GetUserProfile(User.Identity.Name).State</b>
+    </p>
+    <p>
+        Zip Code: <b>@BarApp.Models.CustomProfile.GetUserProfile(User.Identity.Name).PostalCode</b>
+    </p>
+    <p>
+        Phone Number: <b>@BarApp.Models.CustomProfile.GetUserProfile(User.Identity.Name).Phone</b>
+    </p>
     <p> 
         This is your favorite drink: <b>@BarApp.Models.CustomProfile.GetUserProfile(User.Identity.Name).FavoriteDrink</b>
     </p>
@@ -27,6 +48,6 @@
         <i>Any additional profile information would go here.</i>
     </p>
 
-    @Html.ActionLink("Edit Profile", "ChangeProfile" )
+    @Html.ActionLink("Edit Profile", "ChangeProfile")
     
  }
