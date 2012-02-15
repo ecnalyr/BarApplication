@@ -10,6 +10,7 @@ using System.Data;
 using System.Data.Entity;
 using BarApp.ViewModels;
 using AutoMapper;
+using Facebook.Web;
 
 namespace BarApp.Controllers
 {
@@ -31,6 +32,10 @@ namespace BarApp.Controllers
 
         public ActionResult LogOn()
         {
+            if (FacebookWebContext.Current.IsAuthenticated())
+            {
+                return RedirectToAction("Profile", "Home");
+            }
             return View();
         }
 

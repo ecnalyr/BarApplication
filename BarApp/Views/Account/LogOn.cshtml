@@ -3,8 +3,13 @@
 @{
     ViewBag.Title = "Log On";
 }
+<h2>Login using Facebook</h2>
 
-<h2>Log On</h2>
+<div>
+    <fb:login-button></fb:login-button>
+</div>
+
+<h2>Or Log On Without Facebook</h2>
 <p>
     Please enter your user name and password. @Html.ActionLink("Register", "Register") if you don't have an account.
 </p>

@@ -14,3 +14,9 @@ C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\ob
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\obj\Debug\BarApp.pdb
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\bin\AutoMapper.dll
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\bin\AutoMapper.xml
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\bin\Facebook.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\bin\Facebook.Web.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\bin\Facebook.Web.Mvc.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\bin\Facebook.xml
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\bin\Facebook.Web.xml
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\BarAppNew\BarApp\bin\Facebook.Web.Mvc.xml
