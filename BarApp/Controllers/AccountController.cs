@@ -34,7 +34,7 @@ namespace BarApp.Controllers
         {
             if (FacebookWebContext.Current.IsAuthenticated())
             {
-                return RedirectToAction("Profile", "Home");
+                return RedirectToAction("FBProfile", "Home");
             }
             return View();
         }

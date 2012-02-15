@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Facebook.Web.Mvc;
+using Facebook.Web;
 
 namespace BarApp.Controllers
 {
@@ -11,6 +13,18 @@ namespace BarApp.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Welcome to ShotCaller!";
+
+            return View();
+        }
+
+        [FacebookAuthorize(LoginUrl = "/Account/Login")]
+        public ActionResult FBProfile()
+        {
+            var client = new FacebookWebClient();
+
+            dynamic me = client.Get("me");
+            ViewBag.Name = me.name;
+            ViewBag.Id = me.id;
 
             return View();
         }
