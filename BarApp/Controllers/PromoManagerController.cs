@@ -43,6 +43,7 @@ namespace BarApp.Controllers
         public ActionResult Create()
         {
             ViewBag.DrinksId = new SelectList(db.Drink, "DrinksId", "name");
+            ViewBag.EstablishmentsId = new SelectList(db.Establishment, "EstablishmentsId", "name");
             return View();
         } 
 
