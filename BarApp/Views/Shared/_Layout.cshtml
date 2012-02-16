@@ -3,35 +3,34 @@
 <head>
     <meta charset="utf-8" />
     <title>@ViewBag.Title</title>
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
     <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/modernizr-2.0.6-development-only.js")" type="text/javascript"></script>
 </head>
 <body>
-    <div class="page">
-        <header>
-            <div id="title">
-                <h1>My MVC Application</h1>
-            </div>
-            <div id="logindisplay">
-                @Html.Partial("_LogOnPartial")
-            </div>
-            <div>
-                @{Html.RenderAction("CartSummary", "ShoppingCart");}
-            </div>
-            <nav>
-                <ul id="menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <h3><a class="brand" href="#">My MVC Application</a></h3>
+                <ul class="nav">
+                    <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Bars", "Index", "Establishment")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Manage Drinks", "Index", "DrinkManager")</li>
                     <li>@Html.ActionLink("Manage Establishments", "Index", "EstablishmentManager")</li>
                     <li>@Html.ActionLink("Manage Promos", "Index", "PromoManager")</li>
                 </ul>
-            </nav>
-        </header>
-        <section id="main">
-            @RenderBody()
+                <ul class="nav secondary-nav">
+                    <li>@Html.Partial("_LogOnPartial")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        @RenderBody()
+            <div>
+                @{Html.RenderAction("CartSummary", "ShoppingCart");}
+            </div>
             @{ Html.RenderPartial("FacebookInit"); }
         </section>
         <footer>
