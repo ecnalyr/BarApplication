@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<div class ="hero-unit">
 <h2>This is from the Store view named Index.  This is a list of establishments:</h2>
 <p>
     Select from @Model.Count() establishments:
@@ -14,3 +14,4 @@
         <li>@Html.ActionLink(establish.name, "Establishment" , new {store = establish.name }) </li>
     }
 </ul>
+</div>
