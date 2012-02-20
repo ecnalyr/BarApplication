@@ -25,6 +25,7 @@ namespace BarApp.Controllers
             dynamic me = client.Get("me");
             ViewBag.Name = me.name;
             ViewBag.Id = me.id;
+            ViewBag.Email = me.email;
 
             return View();
         }
