@@ -40,6 +40,11 @@ namespace BarApp.Controllers
         public ActionResult AddressAndPayment(FormCollection values)
         {
             var order = new Order();
+            var code = RandomCode.Generate();
+
+            order.OrderCode = code;
+            order.Active = true;
+
             TryUpdateModel(order);
 
             try
@@ -63,7 +68,7 @@ namespace BarApp.Controllers
                     cart.CreateOrder(order);
 
                     return RedirectToAction("Complete",
-                        new { id = order.OrderId });
+                        new { id = order.OrderId, code = order.OrderCode });
                 }
 
             }
@@ -77,7 +82,7 @@ namespace BarApp.Controllers
         //
         // GET: /Checkout/Complete
 
-        public ActionResult Complete(int id)
+        public ActionResult Complete(int id, string code)
         {
             // Validate customer owns this order
             bool isValid = storeDB.Orders.Any(
@@ -86,6 +91,7 @@ namespace BarApp.Controllers
 
             if (isValid)
             {
+                ViewBag.code = code;
                 return View(id);
             }
             else

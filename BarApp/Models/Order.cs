@@ -65,6 +65,12 @@ namespace BarApp.Models
         [ScaffoldColumn(false)]
         public decimal Total { get; set; }
 
+        [ScaffoldColumn(false)]
+        public string OrderCode { get; set; }
+
+        [ScaffoldColumn(false)]
+        public bool Active { get; set; }
+
         public List<OrderDetail> OrderDetails { get; set; }
     }
 }
