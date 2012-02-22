@@ -8,4 +8,18 @@
     <p>This is the home page for employees of an establishment to see.</p>
     <p>Verify Code (this will eventually be where a cashier could type in the code, for now it shows a code using the random code generator):</p>
     <h1>@ViewBag.rndm</h1>
+    <h2>@ViewBag.sample</h2>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+        <div class="editor-field">
+        @Html.TextArea("sampleCode")
+        </div>
+
+        <p>
+        <input type="submit" value="Test Code" />
+        </p>
+        </fieldset>
+    }
+    
 </div>
