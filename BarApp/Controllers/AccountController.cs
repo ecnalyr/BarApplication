@@ -9,7 +9,6 @@ using BarApp.Models;
 using System.Data;
 using System.Data.Entity;
 using BarApp.ViewModels;
-using AutoMapper;
 using Facebook.Web;
 
 namespace BarApp.Controllers

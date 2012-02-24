@@ -113,5 +113,12 @@ namespace BarApp.Models
             get { return base["Phone"] as string; }
             set { base["Phone"] = value; }
         }
+
+        [SettingsAllowAnonymous(false)]
+        public string OwnedBar
+        {
+            get { return base["OwnedBar"] as string; }
+            set { base["OwnedBar"] = value; }
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Profile";
 }
-
+<div class ="hero-unit">
 <h2>Profile</h2>
 @if (Request.IsAuthenticated)
 {
@@ -51,3 +51,4 @@
     @Html.ActionLink("Edit Profile", "ChangeProfile")
     
  }
+ </div>

@@ -4,11 +4,13 @@
 
 <div class ="hero-unit">
     <h2>POS Index</h2>
-
+    <p><li>@Html.ActionLink("Manage Profiles", "ManageProfile", "Pos")</li></p>
     <p>This is the home page for employees of an establishment to see.</p>
     <p>Verify Code (this will eventually be where a cashier could type in the code, for now it shows a code using the random code generator):</p>
     <h1>@ViewBag.rndm</h1>
     <h2>@ViewBag.sample</h2>
+    <h2>@ViewBag.barId</h2>
+    <h3>@ViewBag.msg</h3>
     @using (Html.BeginForm())
     {
         <fieldset>

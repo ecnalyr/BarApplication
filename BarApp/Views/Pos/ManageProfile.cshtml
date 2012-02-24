@@ -1,0 +1,27 @@
+﻿@model BarApp.ViewModels.ChangeProfileViewModel
+
+
+@{
+    ViewBag.Title = "ManageProfile";
+}
+<div class ="hero-unit">
+<h2>ManageProfile</h2>
+<p>
+    Selecting the name of the account you want to be the manager of a bar in the first box.  Then select the bar that the manager will 'own.'  This will set the user's CustomProfile to reflect that OwnedBar = whatever you selected in the second box.
+</p>
+<p>
+    This is a very open process - do NOT set any user to have an OwnedBar unless you want them to be able to redeem purchased codes.
+</p>
+<p>
+    This allows a check to be performed when a code is input on the main POS screen that ensures that a code belongs to the bar that is logged in and using the system.
+</p>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(x => x.SelectedUser)
+    @Html.DropDownListFor(x => x.SelectedUser, Model.Users)
+    @Html.LabelFor(y => y.SelectedBar)
+    @Html.DropDownListFor(y => y.SelectedBar, Model.Bars)
+    <button type="submit">OK</button>
+}
+</div>
