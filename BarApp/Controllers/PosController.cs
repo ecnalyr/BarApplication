@@ -31,9 +31,10 @@ namespace BarApp.Controllers
         [HttpPost]
         public ActionResult Index(FormCollection sampleKey)
         {
-            string code = sampleKey["sampleCode"]; // Need to check if this key is active
+            string code = sampleKey["sampleCode"];
+            ViewBag.code = code;
+            // Need to check if this key is active
             // search for code in Order table, if code exists make sure that the code is active - if it is active and exists, display user email
-            //BarAppEntities orderDB = new BarAppEntities();
             var order = db.Orders.SingleOrDefault(
                 o => o.OrderCode == code
                     && o.Active == true);
@@ -66,6 +67,7 @@ namespace BarApp.Controllers
                     ViewBag.msg = "This drink is for your bar";
                 }
             }
+            //return View("Redeem");
             return View();
         }
 
@@ -106,5 +108,30 @@ namespace BarApp.Controllers
             profile.Save();
             return Content("Thank you for selecting " + selectedUser + selectedBar);
         }
+
+        //
+        // GET: /Pos/Redeem
+        public ActionResult Redeem()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Pos/Redeem
+        [HttpPost]
+        public ActionResult Redeem(Order order)
+        {
+            if (order != null)
+            {
+                ViewBag.codeAgain = order.OrderCode;
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            //return View();
+        }
+
     }
 }

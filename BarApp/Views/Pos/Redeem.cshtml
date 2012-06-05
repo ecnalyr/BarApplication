@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Redeem";
+}
+<div class="hero-unit">
+<h2>Redeem</h2>
+    <h2>@ViewBag.sample</h2>
+    <h2>@ViewBag.code</h2>
+    <h2>@ViewBag.barId</h2>
+    <h3>@ViewBag.msg</h3>
+    @using (Html.BeginForm())
+    {
+        <input type="submit" value="Redeem Code" />
+    }
+    <h1>@ViewBag.codeAgain this is the code again</h1>
+</div>
